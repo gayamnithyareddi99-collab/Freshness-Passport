@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Freshness Passport</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+scroll-behavior:smooth;
+}
+
+/* COLORS */
+
+:root{
+--primary:#4F46E5;
+--secondary:#7C3AED;
+--accent:#EC4899;
+--text:#0F172A;
+--bg:#F8FAFC;
+}
+
+/* HERO */
+
+.hero{
+padding:160px 8%;
+background:var(--bg);
+}
+
+.hero-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.hero h1{
+font-size:44px;
+color:var(--text);
+margin-bottom:20px;
+}
+
+.hero p{
+color:#555;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+}
+
+.btn{
+padding:12px 24px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+}
+
+.btn-primary{
+background:var(--primary);
+color:white;
+}
+
+.btn-secondary{
+border:1px solid var(--primary);
+color:var(--primary);
+}
+
+.hero img{
+width:100%;
+}
+
+/* PLATFORM */
+
+.platform{
+padding:120px 8%;
+background:white;
+}
+
+.section-title{
+text-align:center;
+font-size:34px;
+margin-bottom:10px;
+}
+
+.section-sub{
+text-align:center;
+color:#666;
+margin-bottom:50px;
+}
+
+.platform-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.platform-card{
+background:#f9fafb;
+padding:25px;
+border-radius:10px;
+text-align:center;
+transition:.3s;
+}
+
+.platform-card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.platform-img{
+width:100%;
+height:160px;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+/* PROCESS */
+
+.process{
+padding:120px 8%;
+background:#f9fafb;
+}
+
+.process-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+text-align:center;
+}
+
+.process img{
+width:100%;
+height:150px;
+object-fit:contain;
+margin-bottom:10px;
+}
+
+/* PRICING */
+
+.pricing{
+padding:120px 8%;
+background:white;
+}
+
+.pricing-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.price-card{
+border:1px solid #eee;
+padding:35px;
+border-radius:10px;
+text-align:center;
+}
+
+.price-card h3{
+margin-bottom:10px;
+}
+
+.price-card ul{
+list-style:none;
+margin:20px 0;
+}
+
+.price-card li{
+margin:8px 0;
+color:#555;
+}
+
+/* FAQ */
+
+.faq{
+padding:120px 8%;
+background:black;
+color:white;
+}
+
+.faq-container{
+max-width:800px;
+margin:auto;
+}
+
+.faq-item{
+border-bottom:1px solid #333;
+padding:18px 0;
+}
+
+.faq-question{
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.faq-answer{
+display:none;
+color:#ccc;
+margin-top:8px;
+}
+
+/* CONTACT */
+
+.contact{
+padding:120px 8%;
+background:white;
+}
+
+.contact-container{
+max-width:1000px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+/* FOOTER */
+
+.footer{
+background:#111;
+color:#aaa;
+padding:20px;
+text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.nav-links{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:white;
+flex-direction:column;
+padding:20px;
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero-container,
+.platform-grid,
+.process-grid,
+.pricing-grid,
+.contact-container{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">Freshness Passport</div>
+
+<div class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
+<a href="#platform">Platform</a>
+<a href="#process">How It Works</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</div>
+
+</header>
+<header class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">Freshness Passport</div>
+
+<nav id="navMenu">
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#process">Process</a>
+<a href="#platform">Platform</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<div class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+
+</header>
+
+
+
+<style>
+
+/* NAVBAR */
+
+.navbar{
+width:100%;
+background:#0b3d91;
+padding:11px 8%;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+font-family:'Segoe UI',sans-serif;
+box-shadow:0 3px 15px rgba(0,0,0,0.15);
+}
+
+/* CONTAINER */
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+/* LOGO */
+
+.logo{
+font-size:22px;
+font-weight:700;
+color:white;
+}
+
+/* NAV LINKS */
+
+#navMenu{
+display:flex;
+gap:35px;
+align-items:center;
+}
+
+/* LINKS */
+
+#navMenu a{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:500;
+position:relative;
+}
+
+/* HOVER UNDERLINE */
+
+#navMenu a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:white;
+transition:0.3s;
+}
+
+#navMenu a:hover::after{
+width:100%;
+}
+
+/* HAMBURGER */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:25px;
+height:3px;
+background:white;
+display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+#navMenu{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#c06459;
+flex-direction:column;
+padding:25px 0;
+gap:20px;
+display:none;
+}
+
+#navMenu.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+}
+
+</style>
+
+
+
+<script>
+
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("navMenu");
+
+/* OPEN CLOSE MENU */
+
+toggle.addEventListener("click",()=>{
+menu.classList.toggle("active");
+});
+
+/* CLOSE MENU WHEN LINK CLICKED */
+
+document.querySelectorAll("#navMenu a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+menu.classList.remove("active");
+
+});
+
+});
+
+/* SMOOTH SCROLL */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+});
+
+</script>
+<section class="hero-section" id="home">
+
+<div class="hero-container">
+
+<!-- LEFT TEXT -->
+
+<div class="hero-left">
+
+<h1>Freshness-Driven Food Waste Prevention Platform</h1>
+
+<p class="hero-text">
+Freshness Passport helps grocery retailers reduce food waste by
+tracking product freshness, analysing root causes of waste and
+providing actionable insights to improve supply chain decisions.
+</p>
+
+<p class="hero-text">
+The platform estimates remaining shelf life and enables smarter
+actions such as better stock allocation, timely markdowns and
+improved inventory rotation.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#platform" class="btn-primary">Explore Platform</a>
+
+<a href="#contact" class="btn-secondary">Request Demo</a>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT IMAGE -->
+
+<div class="hero-right">
+
+<img src="hero123.jpeg" alt="Freshness Passport Platform Dashboard">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<style>
+
+/* HERO SECTION */
+
+.hero-section{
+padding:120px 8%;
+background:white;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.hero-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+/* LEFT */
+
+.hero-left h1{
+font-size:46px;
+color:#0b3d91;
+margin-bottom:20px;
+line-height:1.2;
+}
+
+.hero-text{
+color:#555;
+font-size:17px;
+line-height:1.7;
+margin-bottom:20px;
+max-width:520px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+display:flex;
+gap:15px;
+}
+
+/* PRIMARY */
+
+.btn-primary{
+background:#0b3d91;
+color:white;
+padding:13px 26px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn-primary:hover{
+background:#072c6a;
+}
+
+/* SECONDARY */
+
+.btn-secondary{
+border:2px solid #0b3d91;
+color:#0b3d91;
+padding:13px 26px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn-secondary:hover{
+background:#0b3d91;
+color:white;
+}
+
+/* RIGHT IMAGE */
+
+.hero-right img{
+width:100%;
+border-radius:10px;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-section{
+padding:80px 6%;
+}
+
+.hero-container{
+grid-template-columns:1fr;
+gap:35px;
+text-align:center;
+}
+
+.hero-left h1{
+font-size:32px;
+line-height:1.3;
+}
+
+.hero-text{
+margin:auto;
+font-size:16px;
+max-width:100%;
+}
+
+.hero-buttons{
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.btn-primary,
+.btn-secondary{
+padding:12px 20px;
+font-size:14px;
+}
+
+.hero-right{
+margin-top:20px;
+}
+
+.hero-right img{
+max-width:100%;
+height:auto;
+}
+
+}
+
+</style>
+
+
+
+<script>
+
+/* Smooth Scroll */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener("click", function(e) {
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+});
+
+</script>
+<section class="about-section" id="about">
+
+<div class="about-container">
+
+<!-- LEFT CONTENT -->
+
+<div class="about-left">
+
+<h2>About Freshness Passport</h2>
+
+<p>
+Freshness Passport is an advanced operational intelligence platform
+designed to help grocery retailers reduce avoidable food waste across
+their supply chains. The platform combines freshness tracking,
+root-cause analytics, and operational decision support to identify
+waste risks early and enable timely interventions before products
+reach expiry.
+</p>
+
+<p>
+By integrating data from distribution centres, stores, and supply chain
+operations, Freshness Passport estimates remaining shelf life,
+identifies the underlying drivers of waste, and recommends practical
+actions such as improved stock allocation, earlier markdowns, and
+better inventory rotation to improve retail efficiency and sustainability.
+</p>
+
+<div class="about-features">
+
+<div class="feature">Freshness Digital Passport Tracking</div>
+<div class="feature">AI-Driven Waste Prevention Analytics</div>
+<div class="feature">Root-Cause Attribution for Food Waste</div>
+<div class="feature">Operational Decision Support</div>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="about-right">
+
+<div class="founder-box">
+
+<h3 class="founder-title">Founders</h3>
+<div class="founder-divider"></div>
+
+<p>
+Freshness Passport was founded by <strong>Abdul Varis</strong> and 
+<strong>Blesswin</strong>, who share a vision of transforming how
+grocery retailers manage freshness and prevent avoidable food waste.
+The founders bring expertise in logistics, retail operations, and
+supply chain management, enabling the development of a platform that
+helps organisations improve operational efficiency while supporting
+sustainable food systems.
+</p>
+
+<div class="founder-links">
+
+<a href="#" class="linkedin-btn">Abdul Varis – LinkedIn</a>
+
+<a href="#" class="linkedin-btn">Blesswin – LinkedIn</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.about-section{
+padding:140px 8%;
+background:#0b3d91;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.about-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1.3fr 1fr;
+gap:80px;
+align-items:center;
+}
+
+/* LEFT */
+
+.about-left h2{
+font-size:42px;
+margin-bottom:25px;
+color:white;
+}
+
+.about-left p{
+color:#e6eefc;
+line-height:1.8;
+margin-bottom:20px;
+font-size:16px;
+max-width:520px;
+}
+
+/* FEATURES */
+
+.about-features{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.feature{
+background:white;
+color:#333;
+padding:10px 14px;
+border-radius:6px;
+font-size:14px;
+}
+
+/* FOUNDER BOX */
+
+.founder-box{
+background:white;
+padding:35px;
+border-radius:10px;
+box-shadow:0 12px 35px rgba(0,0,0,0.2);
+}
+
+.founder-title{
+margin-bottom:5px;
+color:#111;
+}
+
+.founder-divider{
+width:60px;
+height:3px;
+background:#0b3d91;
+margin-bottom:15px;
+border-radius:2px;
+}
+
+.founder-box p{
+color:#555;
+line-height:1.7;
+margin-bottom:20px;
+}
+
+/* LINKEDIN */
+
+.founder-links{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.linkedin-btn{
+display:inline-block;
+padding:10px 18px;
+background:#0b3d91;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:600;
+}
+
+.linkedin-btn:hover{
+background:#072c6a;
+}
+.step{
+display:inline-block;
+font-size:13px;
+font-weight:700;
+color:#0b3d91;
+background:#eef3ff;
+padding:5px 12px;
+border-left:4px solid #0b3d91;
+margin-bottom:12px;
+letter-spacing:1px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.about-section{
+padding:90px 6%;
+}
+
+.about-container{
+grid-template-columns:1fr;
+gap:40px;
+text-align:center;
+}
+
+.about-left h2{
+font-size:32px;
+}
+
+.about-left p{
+margin:auto;
+font-size:15px;
+max-width:100%;
+}
+
+.about-features{
+grid-template-columns:1fr;
+gap:10px;
+max-width:320px;
+margin:auto;
+}
+
+.feature{
+padding:10px;
+font-size:13px;
+}
+
+.founder-box{
+padding:25px;
+margin-top:10px;
+}
+
+.founder-divider{
+width:50px;
+height:3px;
+background:#0b3d91;
+margin:12px auto 18px auto;
+}
+
+.linkedin-btn{
+font-size:14px;
+}
+
+}
+
+</style>
+<section class="process-section" id="process">
+
+<div class="process-container">
+
+<h2 class="process-title">How Freshness Passport Works</h2>
+
+<p class="process-sub">
+Freshness Passport transforms supply-chain data into operational actions
+that help grocery retailers detect freshness risks early, understand
+their root causes and implement targeted interventions to prevent
+avoidable food waste across distribution centres and retail stores.
+</p>
+
+
+<div class="process-grid">
+
+<!-- STEP 1 -->
+
+<div class="process-card">
+
+<img src="process1.jpeg" class="process-img">
+
+<div class="step">01</div>
+
+<h3>Supply Chain Data Integration</h3>
+
+<p>
+The platform connects operational data from distribution centres,
+store inventory systems, logistics events, temperature sensors and
+sales data. By combining these datasets, Freshness Passport creates
+a unified operational view of product movement, handling conditions
+and freshness signals across the retail supply chain.
+</p>
+
+</div>
+
+
+<!-- STEP 2 -->
+
+<div class="process-card">
+
+<img src="process2.jpeg" class="process-img">
+
+<div class="step">02</div>
+
+<h3>Freshness Digital Passport Creation</h3>
+
+<p>
+Each batch or handling unit receives a Freshness Digital Passport
+that records movement events, dwell times and temperature exposure
+throughout the cold chain. The platform continuously estimates
+Remaining Shelf Life (RSL), providing an accurate view of product
+freshness beyond static expiry dates.
+</p>
+
+</div>
+
+
+<!-- STEP 3 -->
+
+<div class="process-card">
+
+<img src="process3.jpeg" class="process-img">
+
+<div class="step">03</div>
+
+<h3>Root-Cause Waste Analysis</h3>
+
+<p>
+Advanced analytics identify the operational drivers of waste such as
+forecast bias, late deliveries, cold-chain variability or store
+execution delays. The platform ranks these drivers and explains
+how operational processes influence freshness loss and expiry risk.
+</p>
+
+</div>
+
+
+<!-- STEP 4 -->
+
+<div class="process-card">
+
+<img src="process4.jpeg" class="process-img">
+
+<div class="step">04</div>
+
+<h3>Operational Action & Impact Tracking</h3>
+
+<p>
+Freshness Passport converts insights into practical actions including
+FEFO picking recommendations, allocation adjustments, earlier
+markdown triggers and store task lists. The platform then tracks
+the impact of these interventions, measuring waste reduction,
+cost savings and sustainability improvements.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<style>
+
+/* SECTION */
+
+.process-section{
+padding:120px 8%;
+background:#f5f7fb;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+}
+
+/* TITLE */
+
+.process-title{
+font-size:38px;
+margin-bottom:10px;
+color:#0b3d91;
+font-weight:700;
+}
+
+.process-sub{
+max-width:650px;
+margin:auto;
+margin-bottom:70px;
+color:#555;
+line-height:1.7;
+}
+
+/* GRID */
+
+.process-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+/* CARD */
+
+.process-card{
+background:white;
+padding:25px;
+border-radius:10px;
+border:2px solid #eee;
+text-align:left;
+transition:0.3s;
+}
+
+.process-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
+border-color:#0b3d91;
+}
+
+/* IMAGE */
+
+.process-img{
+width:100%;
+height:150px;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+/* STEP */
+
+.step{
+font-size:13px;
+font-weight:700;
+color:#0b3d91;
+margin-bottom:8px;
+}
+
+/* TEXT */
+
+.process-card h3{
+margin-bottom:10px;
+color:#0b3d91;
+}
+
+.process-card p{
+color:#555;
+font-size:14px;
+line-height:1.6;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.process-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+<script>
+
+console.log("Freshness Passport process section loaded");
+
+</script>
+<section class="platform-section" id="platform">
+
+<div class="platform-container">
+
+<h2 class="platform-title">Freshness Passport Platform</h2>
+<div class="faq-divider"></div>
+<p class="platform-sub">
+Freshness Passport is an intelligent operational platform designed to help
+grocery retailers prevent avoidable food waste. The system connects supply
+chain data, freshness signals and operational workflows to detect waste
+risks early and trigger practical interventions across distribution centres
+and retail stores.
+</p>
+
+
+<div class="platform-grid">
+
+<!-- CARD 1 -->
+
+<div class="platform-card">
+
+<img src="platform1.jpeg" class="platform-img">
+
+<h3>Freshness Digital Passport</h3>
+
+<p class="short-text">
+Track product freshness across the supply chain.
+</p>
+
+<p class="more-text">
+Every batch or handling unit receives a Freshness Digital Passport that
+records movement events, temperature exposure and handling conditions
+throughout the cold chain. This traceability layer allows retailers to
+understand how logistics and store operations influence product freshness
+and shelf life.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 2 -->
+
+<div class="platform-card">
+
+<img src="platform2.jpeg" class="platform-img">
+
+<h3>Remaining Shelf Life Estimation</h3>
+
+<p class="short-text">
+Predict product freshness and expiry risk.
+</p>
+
+<p class="more-text">
+The platform estimates Remaining Shelf Life (RSL) using time–temperature
+history and operational handling events. Instead of relying only on printed
+expiry dates, the system calculates probabilistic freshness risk, allowing
+retailers to make smarter inventory, allocation and markdown decisions.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 3 -->
+
+<div class="platform-card">
+
+<img src="platform3.jpeg" class="platform-img">
+
+<h3>Waste Root-Cause Analytics</h3>
+
+<p class="short-text">
+Identify why food waste occurs in operations.
+</p>
+
+<p class="more-text">
+Freshness Passport analyses operational data to determine the drivers of
+waste such as forecast bias, replenishment rules, delivery delays,
+temperature excursions and store execution failures. The platform ranks
+these drivers and highlights where interventions will have the greatest
+impact.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 4 -->
+
+<div class="platform-card">
+
+<img src="platform4.jpeg" class="platform-img">
+
+<h3>Operational Action Engine</h3>
+
+<p class="short-text">
+Turn insights into real operational actions.
+</p>
+
+<p class="more-text">
+The orchestration engine converts analytics into practical tasks and
+system actions. It generates FEFO picking lists, store task assignments,
+allocation recommendations and markdown triggers to prevent waste before
+products expire.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 5 -->
+
+<div class="platform-card">
+
+<img src="platform5.jpeg" class="platform-img">
+
+<h3>Supply Chain Visibility</h3>
+
+<p class="short-text">
+Connect distribution centres, stores and suppliers.
+</p>
+
+<p class="more-text">
+The platform integrates data from logistics systems, inventory records
+and store operations to provide full visibility across the supply chain.
+Retail teams can monitor freshness performance, detect operational
+bottlenecks and coordinate actions across different stakeholders.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 6 -->
+
+<div class="platform-card">
+
+<img src="platform6.jpeg" class="platform-img">
+
+<h3>Impact & Sustainability Reporting</h3>
+
+<p class="short-text">
+Measure operational and environmental impact.
+</p>
+
+<p class="more-text">
+Freshness Passport measures the impact of operational interventions,
+helping retailers track waste reduction, cost savings and sustainability
+improvements including estimated CO₂ emission reductions.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.platform-section{
+padding:120px 8%;
+background:#0b3d91;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+color:white;
+}
+
+/* TITLE */
+
+.platform-title{
+font-size:38px;
+margin-bottom:10px;
+font-weight:700;
+}
+
+.platform-sub{
+max-width:650px;
+margin:auto;
+margin-bottom:70px;
+line-height:1.7;
+color:#dbe6ff;
+}
+
+/* GRID */
+
+.platform-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+/* CARD */
+
+.platform-card{
+background:white;
+color:#333;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+text-align:left;
+}
+
+.platform-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.platform-img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+/* TEXT */
+
+.platform-card h3{
+margin-bottom:8px;
+color:#0b3d91;
+}
+
+.short-text{
+color:#666;
+margin-bottom:10px;
+}
+
+.more-text{
+display:none;
+font-size:14px;
+color:#666;
+line-height:1.6;
+margin-bottom:10px;
+}
+
+/* BUTTON */
+
+.learn-btn{
+background:#0b3d91;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+.learn-btn:hover{
+background:#072c6a;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.platform-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+<script>
+
+const buttons = document.querySelectorAll(".learn-btn");
+
+buttons.forEach(btn => {
+
+btn.addEventListener("click", function(){
+
+const card = this.parentElement;
+const more = card.querySelector(".more-text");
+
+if(more.style.display === "block"){
+
+more.style.display = "none";
+this.innerText = "Learn More";
+
+}else{
+
+more.style.display = "block";
+this.innerText = "Show Less";
+
+}
+
+});
+
+});
+
+</script>
+<section class="pricing-section" id="pricing">
+
+<div class="pricing-container">
+
+<h2 class="pricing-title">Platform Pricing</h2>
+
+<div class="pricing-divider"></div>
+
+<p class="pricing-sub">
+Flexible pricing designed for grocery retailers and supply chain
+partners looking to reduce food waste, improve freshness visibility
+and optimise operational decisions across distribution centres
+and retail stores.
+</p>
+
+
+<div class="pricing-grid">
+
+<!-- PILOT PLAN -->
+
+<div class="pricing-card">
+
+<h3>Pilot Deployment</h3>
+
+<p class="price">Pilot Programme</p>
+
+<ul>
+<li><span>✔</span> Freshness Digital Passport setup</li>
+<li><span>✔</span> RSL (Remaining Shelf Life) estimation engine</li>
+<li><span>✔</span> Waste event tracking & analytics</li>
+<li><span>✔</span> Root-cause attribution insights</li>
+<li><span>✔</span> Weekly operational insights report</li>
+<li><span>✔</span> Deployment for 1 DC + 20-50 stores</li>
+</ul>
+<a href="#contact" class="pricing-btn">Start Pilot</a>
+
+</div>
+
+
+
+<!-- PLATFORM PLAN -->
+
+<div class="pricing-card featured">
+
+<div class="badge">Most Popular</div>
+
+<h3>Platform Subscription</h3>
+
+<p class="price">Retail Operations Platform</p>
+
+<ul>
+<li><span>✔</span> Full Freshness Passport system</li>
+<li><span>✔</span> AI-driven waste prevention analytics</li>
+<li><span>✔</span> RSL-based inventory optimisation</li>
+<li><span>✔</span> Root-cause attribution engine</li>
+<li><span>✔</span> Operational task orchestration</li>
+<li><span>✔</span> Real-time freshness performance dashboards</li>
+</ul>
+
+<a href="#contact" class="pricing-btn">Get Platform</a>
+
+</div>
+
+
+
+<!-- ENTERPRISE PLAN -->
+
+<div class="pricing-card">
+
+<h3>Enterprise Network</h3>
+
+<p class="price">Enterprise Deployment</p>
+
+<ul>
+<li><span>✔</span> Multi-distribution centre deployment</li>
+<li><span>✔</span> Supplier collaboration tools</li>
+<li><span>✔</span> Advanced allocation optimisation</li>
+<li><span>✔</span> Markdown optimisation engine</li>
+<li><span>✔</span> ESG impact & CO₂ reporting insights</li>
+<li><span>✔</span> Dedicated onboarding & support</li>
+</ul>
+
+<a href="#contact" class="pricing-btn">Contact Sales</a>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+
+<style>
+
+/* SECTION */
+
+.pricing-section{
+padding:120px 8%;
+background:white;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+}
+
+/* TITLE */
+
+.pricing-title{
+font-size:38px;
+color:#0b3d91;
+font-weight:700;
+margin-bottom:10px;
+}
+
+/* DIVIDER */
+
+.pricing-divider{
+width:80px;
+height:4px;
+background:#0b3d91;
+margin:15px auto 25px auto;
+border-radius:2px;
+}
+
+/* SUBTEXT */
+
+.pricing-sub{
+max-width:650px;
+margin:auto;
+color:#555;
+line-height:1.7;
+margin-bottom:70px;
+}
+
+/* GRID */
+
+.pricing-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+}
+
+/* CARD */
+
+.pricing-card{
+background:#ffffff;
+padding:40px 30px;
+border-radius:12px;
+border:2px solid #e6e6e6;
+transition:all 0.4s ease;
+position:relative;
+text-align:left;
+animation:floatCard 6s ease-in-out infinite;
+}
+
+/* CARD MOVEMENT */
+
+@keyframes floatCard{
+
+0%{ transform:translateY(0px); }
+
+50%{ transform:translateY(-10px); }
+
+100%{ transform:translateY(0px); }
+
+}
+
+/* HOVER EFFECT */
+
+.pricing-card:hover{
+transform:translateY(-15px);
+box-shadow:0 20px 45px rgba(0,0,0,0.15);
+border-color:#0b3d91;
+}
+
+/* FEATURED CARD */
+
+.featured{
+border:2px solid #0b3d91;
+transform:scale(1.05);
+}
+
+/* BADGE */
+
+.badge{
+position:absolute;
+top:-14px;
+left:50%;
+transform:translateX(-50%);
+background:#0b3d91;
+color:white;
+font-size:12px;
+padding:6px 16px;
+border-radius:20px;
+font-weight:600;
+}
+
+/* PRICE */
+
+.price{
+margin:15px 0 22px;
+font-weight:600;
+color:#0b3d91;
+font-size:15px;
+}
+
+/* LIST */
+
+.pricing-card ul{
+list-style:none;
+padding:0;
+margin-bottom:28px;
+}
+
+.pricing-card li{
+margin:12px 0;
+color:#444;
+font-size:14px;
+display:flex;
+align-items:center;
+}
+
+/* BLUE TICKS */
+
+.pricing-card li span{
+color:#0b3d91;
+font-weight:bold;
+margin-right:10px;
+}
+
+.pricing-btn{
+display:inline-block;
+padding:12px 24px;
+background:#0b3d91;
+color:white;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.pricing-btn:hover{
+background:#072c6a;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.pricing-grid{
+grid-template-columns:1fr;
+}
+
+.featured{
+transform:none;
+}
+
+}
+
+</style>
+<section class="faq-section" id="faq">
+
+<div class="faq-container">
+
+<h2 class="faq-title">Frequently Asked Questions</h2>
+
+<div class="faq-divider"></div>
+
+<p class="faq-sub">
+Learn how the Freshness Passport platform helps grocery retailers
+reduce food waste, improve freshness visibility and optimise
+supply chain operations using AI-powered insights.
+</p>
+
+
+<div class="faq-list">
+
+<!-- FAQ 1 -->
+
+<div class="faq-item">
+<div class="faq-question">
+<span>What is the Freshness Passport platform?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Freshness Passport is an AI-powered platform designed to help
+grocery retailers track product freshness across the supply chain,
+identify causes of food waste and take actions to prevent losses
+before products expire.
+</p>
+</div>
+</div>
+
+
+<!-- FAQ 2 -->
+
+<div class="faq-item">
+<div class="faq-question">
+<span>How does the platform reduce food waste?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+The system analyses temperature history, supply chain events and
+store operations to estimate remaining shelf life and detect
+risks early, allowing retailers to take actions such as better
+allocation, markdown timing and improved rotation.
+</p>
+</div>
+</div>
+
+
+<!-- FAQ 3 -->
+
+<div class="faq-item">
+<div class="faq-question">
+<span>Who can use the Freshness Passport system?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+The platform is designed for grocery retailers, distribution
+centres, supply chain managers and sustainability teams who
+want to reduce waste and improve freshness performance.
+</p>
+</div>
+</div>
+
+
+<!-- FAQ 4 -->
+
+<div class="faq-item">
+<div class="faq-question">
+<span>What kind of data does the platform use?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+The system uses retail operational data such as sales,
+deliveries, inventory levels, markdowns and temperature
+tracking data to analyse freshness conditions and identify
+waste drivers.
+</p>
+</div>
+</div>
+
+
+<!-- FAQ 5 -->
+
+<div class="faq-item">
+<div class="faq-question">
+<span>Does the platform integrate with existing retail systems?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Yes. Freshness Passport can integrate with retail ERP systems,
+warehouse management systems and store operations tools to
+provide actionable insights without disrupting existing workflows.
+</p>
+</div>
+</div>
+
+
+<!-- FAQ 6 -->
+
+<div class="faq-item">
+<div class="faq-question">
+<span>How can companies start using the platform?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Retailers can begin with a pilot deployment that connects
+data from a distribution centre and selected stores. The
+platform then provides insights and operational actions
+to demonstrate measurable waste reduction.
+</p>
+</div>
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<style>
+
+/* FAQ SECTION */
+
+.faq-section{
+padding:120px 8%;
+background:#0b3d91;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.faq-container{
+max-width:900px;
+margin:auto;
+}
+
+/* TITLE */
+
+.faq-title{
+text-align:center;
+color:white;
+font-size:36px;
+margin-bottom:10px;
+}
+
+/* DIVIDER */
+
+.faq-divider{
+width:70px;
+height:3px;
+background:white;
+margin:15px auto 25px auto;
+border-radius:2px;
+}
+
+/* SUBTEXT */
+
+.faq-sub{
+text-align:center;
+color:#d6d6d6;
+margin-bottom:40px;
+line-height:1.6;
+}
+
+/* LIST */
+
+.faq-list{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+/* ITEM */
+
+.faq-item{
+border-bottom:1px solid rgba(255,255,255,0.3);
+padding-bottom:10px;
+}
+
+/* QUESTION */
+
+.faq-question{
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+color:white;
+font-size:16px;
+padding:12px 0;
+}
+
+/* BUTTON */
+
+.toggle{
+background:white;
+border:none;
+color:#0b3d91;
+font-size:18px;
+width:30px;
+height:30px;
+border-radius:4px;
+cursor:pointer;
+}
+
+/* ANSWER */
+
+.faq-answer{
+display:none;
+}
+
+.faq-answer p{
+color:#d6d6d6;
+line-height:1.6;
+padding-bottom:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.faq-title{
+font-size:28px;
+}
+
+}
+
+</style>
+
+
+<script>
+
+const questions = document.querySelectorAll(".faq-question");
+
+questions.forEach(q=>{
+
+q.addEventListener("click",()=>{
+
+const answer = q.nextElementSibling;
+const btn = q.querySelector(".toggle");
+
+if(answer.style.display === "block"){
+
+answer.style.display = "none";
+btn.innerHTML = "+";
+
+}else{
+
+document.querySelectorAll(".faq-answer").forEach(a=>{
+a.style.display = "none";
+});
+
+document.querySelectorAll(".toggle").forEach(b=>{
+b.innerHTML = "+";
+});
+
+answer.style.display = "block";
+btn.innerHTML = "−";
+
+}
+
+});
+
+});
+
+</script>
+<section class="contact-section" id="contact">
+
+<div class="contact-container">
+
+<!-- LEFT SIDE -->
+
+<div class="contact-left">
+
+<h2>Contact Freshness Passport Team</h2>
+
+<p class="contact-text">
+Interested in reducing food waste and improving supply chain
+efficiency using our Freshness Passport platform?
+Our team is ready to help retailers and supply chain partners
+implement smarter freshness management solutions.
+</p>
+
+<p class="contact-text">
+Reach out to learn how our AI-powered system helps track
+product freshness, prevent waste, and optimize food supply
+operations across distribution centres and retail stores.
+</p>
+
+</div>
+
+
+<!-- RIGHT FORM -->
+
+<div class="contact-right">
+
+<form class="contact-form"
+action="https://api.web3forms.com/submit"
+method="POST">
+
+<input type="hidden" name="access_key" value="dcaf0cdd-10df-4a59-9602-cc08bd323eb4">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Business Email" required>
+
+<input type="tel" name="phone" placeholder="Phone Number">
+
+<textarea name="message" rows="4" placeholder="Tell us about your project or inquiry"></textarea>
+
+<button type="submit">SEND MESSAGE</button>
+
+<p class="note">
+Your message will be securely sent to the Freshness Passport team.
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<style>
+
+/* SECTION */
+
+.contact-section{
+padding:120px 8%;
+background:#ffffff;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.contact-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:flex-start;
+}
+
+/* LEFT SIDE */
+
+.contact-left h2{
+font-size:34px;
+color:#0b3d91;
+margin-bottom:18px;
+}
+
+.contact-text{
+color:#555;
+line-height:1.8;
+margin-bottom:16px;
+max-width:420px;
+}
+
+/* FORM */
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:14px;
+background:#f7f9fc;
+padding:30px;
+border-radius:8px;
+border:1px solid #e3e6ed;
+}
+
+/* INPUT */
+
+.contact-form input,
+.contact-form textarea{
+padding:12px;
+border:1px solid #dcdfe6;
+font-size:14px;
+outline:none;
+background:white;
+border-radius:4px;
+}
+
+/* FOCUS */
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+border-color:#0b3d91;
+}
+
+/* BUTTON */
+
+.contact-form button{
+margin-top:10px;
+background:#0b3d91;
+color:white;
+border:none;
+padding:13px;
+font-weight:600;
+letter-spacing:1px;
+cursor:pointer;
+transition:0.3s;
+border-radius:5px;
+}
+
+.contact-form button:hover{
+background:#082c6c;
+}
+
+/* NOTE */
+
+.note{
+font-size:12px;
+color:#777;
+margin-top:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.contact-left{
+text-align:center;
+}
+
+.contact-text{
+margin:auto;
+}
+
+}
+
+</style>
+
+
+
+<script>
+
+const form = document.querySelector(".contact-form");
+
+form.addEventListener("submit", function(){
+alert("Message Sent Successfully!");
+});
+
+</script>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-left">
+
+<h3>Freshness Passport</h3>
+
+<p>
+AI-powered freshness intelligence platform helping grocery
+retailers reduce food waste, improve supply chain efficiency,
+and optimize product freshness through data-driven insights.
+</p>
+
+</div>
+
+
+<!-- CENTER -->
+
+<div class="footer-links">
+
+<h4>Platform</h4>
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#process">Process</a>
+<a href="#platform">Platform</a>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="footer-links">
+
+<h4>Company</h4>
+
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+
+<!-- BOTTOM -->
+
+<div class="footer-bottom">
+
+<p>© 2026 Freshness Passport Platform. All rights reserved.</p>
+
+<button class="top-btn" onclick="scrollTopBtn()">↑</button>
+
+</div>
+
+</footer>
+
+
+<style>
+
+/* FOOTER */
+
+.footer{
+background:#0b3d91;
+color:white;
+padding:50px 8% 20px;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.footer-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr;
+gap:40px;
+}
+
+/* LEFT */
+
+.footer-left h3{
+margin-bottom:12px;
+color:white;
+}
+
+.footer-left p{
+font-size:14px;
+line-height:1.6;
+color:#d6d6d6;
+}
+
+/* LINKS */
+
+.footer-links{
+display:flex;
+flex-direction:column;
+}
+
+.footer-links h4{
+margin-bottom:10px;
+color:white;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#cfcfcf;
+margin-bottom:6px;
+font-size:14px;
+}
+
+.footer-links a:hover{
+color:white;
+}
+
+/* BOTTOM */
+
+.footer-bottom{
+max-width:1100px;
+margin:30px auto 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-top:1px solid rgba(255,255,255,0.25);
+padding-top:15px;
+font-size:13px;
+color:#d6d6d6;
+}
+
+/* TOP BUTTON */
+
+.top-btn{
+background:white;
+color:#0b3d91;
+border:none;
+width:35px;
+height:35px;
+border-radius:50%;
+cursor:pointer;
+font-size:18px;
+font-weight:bold;
+}
+
+.top-btn:hover{
+background:#eaeaea;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+</style>
+
+
+<script>
+
+function scrollTopBtn(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+</script>
+</body>
+</html>
+
+
+
